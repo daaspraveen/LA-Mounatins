@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <title>LosAngeles Mountains</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: 0.5s ease-in-out 0.0s;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    
+        #home-page {
+            background-image: url(bg-1.jpg);
+            display: block;
+        }
+    
+        #home-page,
+        #history-box,
+        #climb-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: cover;
+            overflow: hidden;
+        }
+    
+        header {
+            width: 70%;
+            margin: auto;
+            padding-block: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+    
+        #history-header {
+            width: 100%;
+            background-color: #fff;
+        }
+    
+        .logo-image {
+            min-width: 3vw;
+            max-width: 4vw;
+            border-radius: 50%;
+        }
+    
+        .head-left {
+            display: flex;
+            width: auto;
+            align-items: center;
+            gap: 10px;
+    
+            >img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    
+        .head-right {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            gap: 5px;
+            min-width: 22%;
+    
+            >a {
+                border-bottom: 4px solid white;
+            }
+        }
+    
+        #name {
+            width: 100vw;
+            height: 35vh;
+            margin-left: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+    
+            >h1 {
+                font-size: 5.5rem;
+                font-weight: bolder;
+                line-height: 5.5rem;
+            }
+        }
+    
+        .name-1 {
+            color: #4d4d4d;
+        }
+    
+        .name-2 {
+            color: #414f6f;
+        }
+    
+        .history-head-name {
+            line-height: 1.3rem;
+            font-weight: bolder;
+        }
+    
+        .head-right._2 a {
+            color: black;
+            border-bottom: 4px solid black;
+        }
+    
+        #history-box {
+            background-image: url(bg-2.jpg);
+            display: none;
+        }
+    
+        #history-footer img {
+            width: 12%;
+        }
+    
+        footer {
+            position: absolute;
+            bottom: 0;
+            margin: auto;
+            width: 100vw;
+            background-color: #485779af;
+            padding-block: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .small_imgs:hover {
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px black;
+            transform: scale(1.1);
+        }
+    
+        .mid {
+            width: 75%;
+            margin: auto;
+        }
+    
+        .col_no {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: max-content;
+    
+            .no h1 {
+                font-size: 6rem;
+                display: inline;
+                color: #687894;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .no h4 {
+                color: #414f6f;
+                font-weight: bolder;
+                font-size: 2.2rem;
+                display: inline;
+                position: absolute;
+                bottom: 50px;
+                left: 80%;
+            }
+        }
+    
+        .history_colinfo {
+            margin-left: 10%;
+            margin-top: -2%;
+        }
+    
+        p {
+            color: #000;
+            font-weight: 600;
+        }
+    
+        a,
+        .history-name,
+        .climb-name,
+        .no h4 {
+            text-transform: uppercase;
+        }
+    
+        #climb-box {
+            display: none;
+        }
+    
+        .climb_content {
+            width: 100%;
+            gap: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+    
+        .climb-name {
+            left: 80%;
+        }
+    
+        .climb_colinfo {
+            width: 50%;
+            margin-left: 8%;
+            padding-bottom: 3%;
+        }
+    
+        nav {
+            width: 100%;
+            background-color: #414f6b;
+            padding-left: 15%;
+        }
+    
+        button {
+            font-size: 1.1rem;
+            margin-left: 1%;
+            padding: 4px 10px;
+            border: 0;
+        }
+    
+        button:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            border-radius: 10px;
+        }
+    
+        button:active {
+            transition: ease-in-out 1s
+        }
+    
+        .mountain_1 {
+            color: #414f6b;
+            background-color: #b0b4be;
+        }
+    
+        .mountain_2 {
+            color: #b0b4be;
+            background-color: #414f6b;
+        }
+    
+        #last-footer {
+            width: 100%;
+            background-color: #414f6b;
+            position: absolute;
+            bottom: 0;
+            padding-block: 10px;
+    
+            >div {
+                max-width: 70%;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+    
+        #footer-left {
+            display: flex;
+            gap: 5px;
+            justify-content: left;
+            align-items: center;
+    
+            >img {
+                mix-blend-mode: soft-light;
+            }
+        }
+    
+        .pointer {
+            cursor: pointer;
+        }
+    
+        .last-footer-name {
+            >h3 {
+                color: #63769d;
+                font-size: 1.1rem;
+                line-height: 1rem;
+            }
+        }
+    
+        .copyright {
+            color: #63769d;
+            display: inline-flex;
+            flex-direction: row;
+            width: max-content;
+        }
+    
+        #mounts-box {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+    
+        #mounts-row {
+            width: 200vw;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow: auto;
+        }
+    
+        .mountsrow-img {
+            width: 100vw;
+            height: 100vh;
+        }
+    
+        .schedule-box {
+            position: absolute;
+            top: 4vw;
+            left: 18vw;
+            z-index: 1;
+            width: max-content;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            line-height: 2.5rem;
+        }
+    
+        .schedule-box-2 {
+            display: flex;
+            font-size: 1rem;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+    
+        .schedule-boxsize {
+            padding: 20px;
+            width: max-content;
+        }
+    
+        .box-line-1 {
+            display: inline-flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+    
+        .schedule-box-1>h3 {
+            font-size: 1.5rem;
+            color: #414f6b;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div id="home-page">
+        <header>
+            <div class="head-left">
+                <img src="logo.jpg" alt="logo pic" class="logo-image pointer" title="LOSANGELES MOUNTAINS" >
+            </div>
+            <div class="head-right">
+                <a id="history" class="pointer" title="History" onclick="historypage()">01. History</a>
+                <a id="climb" class="pointer" title="climb" onclick="teampage()">02. Team</a>
+            </div>
+        </header>
+        <div id="name">
+            <h1 class="name-1">LOSANGELES</h1>
+            <h1 class="name-2">MOUNTAINS</h1>
+        </div>
+    </div>
+
+    <div id="history-box">
+        <div id="history-header">
+            <header>
+                <div class="head-left" title="Home" >
+                    <img src="logo.jpg" alt="logo pic" class="logo-image pointer" onclick="homepage()">
+                    <span class="history-head-name pointer" onclick="homepage()">
+                        <h3 class="name-1">LOSANGELES</h3>
+                        <h3 class="name-2">MOUNTAINS</h3>
+                    </span>
+                </div>
+                <div class="head-right _2">
+                    <a title="History" onclick="historypage()" class="pointer" >01. History</a>
+                    <a title="climb"  onclick="teampage()" class="pointer">02. Team</a>
+                </div>
+            </header>
+        </div>
+
+        <div class="history_content mid">
+            <div class="col_no">
+                <div class="no">
+                    <h1>01.</h1>
+                    <h4 class="history-name">History</h4>
+                </div>
+            </div>
+            <div class="history_colinfo ">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ante viverra, rutrum erat rutrum, consectetur mi. Proin at maximus est. Nullam purus ex, iaculis sed erat sed, blandit tincidunt quam. Cras scelerisque id quam sed dignissim Pellentesque urna nunc, gravida quis hendrerit ac, tristique ut quam. Vivamus suscipit dignissim tortor nec congue.</p>
+            </div>
+        </div>
+        <footer id="history-footer">
+            <img src="p2b1.jpg" alt="man-pic" class="small_imgs 1">
+            <img src="p2b2.jpg" alt="mountain-pic" class="small_imgs 2">
+            <img src="p2b1.jpg" alt="man-pic" class="small_imgs 1">
+            <img src="p2b2.jpg" alt="mountain-pic" class="small_imgs 2">
+        </footer>
+    </div>
+
+    <div id="climb-box">
+        <div class="climb_content mid">
+                <div class="col_no">
+                    <div class="no">
+                        <h1 class="climb-no">02.</h1>
+                        <h4 class="climb-name">Climb</h4>
+                    </div>
+                </div>
+                <div class="climb_colinfo">
+                    <p>Cras scelerisque id quam sed dignissim Pellentesque urna nunc, gravida quis hendrerit ac, tristique ut quam. Vivamus suscipit dignissim tortor nec congue.</p>
+                </div>
+        </div>
+
+        <nav>
+            <button title="Mountain 1" onclick="mountain1page()" id="mountain_1" class="mountain_1 pointer" type="button">MOUNTAIN 1</button>
+            <button title="Mountain 2" onclick="mountain2page()" id="mountain_2" class="mountain_2 pointer" type="button">MOUNTAIN 2</button>
+        </nav>
+
+        <div id="mounts-box">
+            <div id="mounts-row">
+                <img src="bg-3.jpg" alt="" class="mountsrow-img">
+                <img src="bg-4.jpg" alt="" class="mountsrow-img">
+            </div>
+            <div class="schedule-box">
+                <div class="schedule-boxsize">
+                    <div class="schedule-box-1">
+                        <h3>
+                            SCHEDULE
+                        </h3>
+                    </div>
+
+                    <div class="schedule-box-2">
+                        <div class="box-line-1">
+                            <p class="para-1">25 Nov 2016 </p>
+                            <p class="para-2">Vestibulum viverra</p>
+                        </div>
+                        <div class="box-line-1">
+                            <p>28 Nov 2016 </p>
+                            <p>Vestibulum viverra</p>
+                        </div>
+                        <div class="box-line-1">
+                            <p>18 Dec 2016 </p>
+                            <p>Vestibulum viverra</p>
+                        </div>
+                        <div class="box-line-1">
+                            <p>7 Jan 2017 </p>
+                            <p>Vestibulum viverra</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="last-footer">
+            <div class="blur-box">
+                <div id="footer-left" title="Home">
+                    <img src="logo.jpg" alt="logo pic" class="logo-image pointer" onclick="homepage()">
+                    <span class="last-footer-name pointer" onclick="homepage()">
+                        <h3 class="footname">LOSANGELES</h3>
+                        <h3 class="footname">MOUNTAINS</h3>
+                    </span>
+                </div>
+                <div class="footer-right">
+                    <p class="copyright">@COPYRIGHT 2016. ALL RIGHTS RESERVED.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        /* function homepage ,historypage, teampage, mountain1page , mountain2page   */
+        /*    ids   home-page, history-box, climb-box    mountain_1, mountain_2   */
+
+        let home_page = document.getElementById("home-page");
+        let history_page = document.getElementById("history-box");
+        let climb_page = document.getElementById("climb-box");
+        let mountain_1 = document.getElementById("mountain_1");
+        let mountain_2 = document.getElementById("mountain_2");
+        let mounts_row = document.getElementById("mounts-row");
+
+        function homepage() {
+            history_page.style.display = "none";
+            climb_page.style.display = "none";
+            home_page.style.display = "block";
+            console.log("homepage worked");
+        }
+
+        function historypage() {
+            home_page.style.display = "none";
+            climb_page.style.display = "none";
+            history_page.style.display = "block";
+            console.log("historypage worked");
+        }
+
+        function teampage() {
+            home_page.style.display = "none";
+            history_page.style.display = "none";
+            climb_page.style.display = "block";
+            console.log("climbpage worked");
+        }
+
+        function mountain1page() {
+            mountain_1.style.color = "#414f6b";
+            mountain_1.style.backgroundColor = "#b0b4be";
+            mountain_2.style.color = "#b0b4be";
+            mountain_2.style.backgroundColor = "#414f6b";
+
+            mounts_row.style.marginLeft = "0";
+            mounts_row.style.transition = "1s ease-in-out 0.0s";
+            console.log("mountain1  worked");
+        }
+
+        function mountain2page() {
+            mountain_1.style.color = "#b0b4be";
+            mountain_1.style.backgroundColor = "#414f6b";
+            mountain_2.style.color = "#414f6b";
+            mountain_2.style.backgroundColor = "#b0b4be";
+
+            mounts_row.style.marginLeft = "-100vw";
+            mounts_row.style.transition = "1s ease-in-out 0.0s";
+            console.log("mountain2 worked");
+        }
+        homepage();
+
+    </script>
+</body>
+</html>
